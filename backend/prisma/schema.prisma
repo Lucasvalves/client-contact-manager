@@ -6,3 +6,56 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  senha     String
+  criadoEm  DateTime @default(now())
+}
+
+model Customer {
+  id        String    @id @default(uuid())
+  fullName  String
+  createdAt DateTime  @default(now())
+  contacts  Contact[]
+  emails    CustomerEmail[]
+  phones    CustomerPhone[]
+}
+
+model CustomerEmail {
+  id         String   @id @default(uuid())
+  email      String
+  customerId String
+  customer   Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+}
+
+model CustomerPhone {
+  id         String   @id @default(uuid())
+  phone      String
+  customerId String
+  customer   Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+}
+
+model Contact {
+  id         String   @id @default(uuid())
+  fullName   String
+  customerId String
+  customer   Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  emails     ContactEmail[]
+  phones     ContactPhone[]
+}
+
+model ContactEmail {
+  id        String  @id @default(uuid())
+  email     String
+  contactId String
+  contact   Contact @relation(fields: [contactId], references: [id], onDelete: Cascade)
+}
+
+model ContactPhone {
+  id        String  @id @default(uuid())
+  phone     String
+  contactId String
+  contact   Contact @relation(fields: [contactId], references: [id], onDelete: Cascade)
+}
