@@ -1,5 +1,5 @@
-import { api } from './api/api'
-import { IUser } from './interfaces'
+import { IUser } from '@/interfaces'
+import { api } from '../api/api'
 
 export type LoginBody = {
   email: string
@@ -12,29 +12,29 @@ export type AuthResponse = {
 }
 
 export class AuthService {
-  async register(data: IUser): Promise<IUser> {
-    console.log('🚀 ~ AuthService ~ register ~ data:', data)
-
+  async register(data: IUser): Promise<AuthResponse> {
     const response = await api.post('/auth/register', data)
-    console.log('🚀 ~ AuthService ~ register ~ response:', response)
+    const { token, user } = response.data
 
-    const { token } = response.data
     localStorage.setItem('token', token)
+    localStorage.setItem('user', JSON.stringify(user))
 
     return response.data
   }
 
   async login(data: LoginBody): Promise<AuthResponse> {
     const response = await api.post('/auth/login', data)
+    const { token, user } = response.data
 
-    const { token } = response.data
     localStorage.setItem('token', token)
+    localStorage.setItem('user', JSON.stringify(user))
 
     return response.data
   }
 
   logout() {
     localStorage.removeItem('token')
+    localStorage.removeItem('user')
   }
 
   getToken() {
