@@ -24,8 +24,8 @@ export class ContactRepository {
       data: {
         fullName,
         customerId,
-        emails: { create: emails.map((email: string) => ({ email })) },
-        phones: { create: phones.map((phone: string) => ({ phone })) }
+        emails: { create: emails },
+        phones: { create: phones }
       },
       include: { emails: true, phones: true }
     })

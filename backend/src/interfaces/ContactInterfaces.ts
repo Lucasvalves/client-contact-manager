@@ -1,8 +1,8 @@
 export interface ICreate {
   fullName: string
   customerId: string
-  emails: string[]
-  phones: string[]
+  emails: { email: string }[]
+  phones: { phone: string }[]
 }
 
 export interface IUpdate {
