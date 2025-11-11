@@ -8,6 +8,7 @@ import NewCustomerPage from './pages/customers/new/page'
 import CustomerDetalhePage from './pages/customers/[id]/page'
 import EditarCustomerPage from './pages/customers/[id]/edit/page'
 import ContactsPage from './pages/contacts/page'
+import NewContactPage from './pages/contacts/new/page'
 
 function App() {
   return (
@@ -57,12 +58,19 @@ function App() {
             </ProtectedRoute>
           }
         />
-
         <Route
           path="/contacts"
           element={
             <ProtectedRoute>
               <ContactsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/contacts/new"
+          element={
+            <ProtectedRoute>
+              <NewContactPage />
             </ProtectedRoute>
           }
         />

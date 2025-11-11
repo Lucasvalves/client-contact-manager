@@ -44,7 +44,7 @@ const ContactsPage = () => {
   }
 
   const handleDelete = async () => {
-    if (!contactToDelete) return
+    if (!contactToDelete?.id) return
 
     setDeleting(true)
     try {

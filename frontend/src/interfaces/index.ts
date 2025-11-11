@@ -18,8 +18,15 @@ export interface ICustomerFormData {
   phones: { id?: string; phone: string }[]
 }
 export interface IContact {
-  id: string
+  id?: string
   fullName?: string
+  emails: { id?: string; email: string }[]
+  phones: { id?: string; phone: string }[]
+  customerId: string
+}
+export interface ContactFormData {
+  id?: string
+  fullName: string
   emails: { id?: string; email: string }[]
   phones: { id?: string; phone: string }[]
   customerId: string
