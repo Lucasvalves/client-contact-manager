@@ -13,7 +13,10 @@ export type AuthResponse = {
 
 export class AuthService {
   async register(data: IUser): Promise<IUser> {
+    console.log('🚀 ~ AuthService ~ register ~ data:', data)
+
     const response = await api.post('/auth/register', data)
+    console.log('🚀 ~ AuthService ~ register ~ response:', response)
 
     const { token } = response.data
     localStorage.setItem('token', token)
