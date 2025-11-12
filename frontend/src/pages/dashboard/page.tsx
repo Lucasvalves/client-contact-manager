@@ -39,7 +39,7 @@ const DashboardPage = () => {
     <>
       <main className="max-w-4xl mx-auto space-y-8">
         <header className="text-center space-y-4">
-          <h1 className="text-4xl font-bold">Client Contact Manager</h1>
+          <h1 className="text-4xl font-bold">ConnectCRM</h1>
           <p className="text-lg text-muted-foreground">
             Gerencie seus clientes e contatos de forma simples e eficiente
           </p>

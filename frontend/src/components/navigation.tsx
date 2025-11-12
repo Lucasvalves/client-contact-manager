@@ -41,7 +41,7 @@ export function Navigation() {
         <div className="flex flex-wrap items-center justify-between h-auto min-h-16 gap-4 py-3">
           <div className="flex flex-wrap items-center gap-4 sm:gap-6 md:gap-8">
             <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground truncate max-w-[200px] sm:max-w-none">
-              Client Contact Manager
+              ConnectCRM
             </h2>
 
             <div className="flex flex-wrap gap-1 sm:gap-2">
